@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Anotacao
@@ -13,19 +15,21 @@ import javax.persistence.Id;
 public class Anotacao {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private String titulo;
     private String descricao;
     private String url;
-    private int usuario;
+    private Usuario usuario;
+    @Temporal(TemporalType.DATE)
     private Date dataInclusao;
+    @Temporal(TemporalType.DATE)
     private Date dataAlteracao;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -53,11 +57,11 @@ public class Anotacao {
         this.url = url;
     }
 
-    public int getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(int usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 

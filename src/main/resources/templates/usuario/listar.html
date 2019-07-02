@@ -12,17 +12,15 @@
             <table style="width:100%">
                 <tr>
                     <th>Nome completo</th>
-                    <th>Código de acesso</th> 
                     <th>Descrição</th>
                     <th>E-mail</th>
                 </tr>
                 <tr th:each="usuario : ${usuarios}">
                     <td><span th:text="${usuario.nomeCompleto}">Nome completo</span></td>
-                    <td><span th:text="${usuario.codigoAcesso}">Código de acesso</span></td>
                     <td><span th:text="${usuario.descricao}">Descrição</span></td>
                     <td><span th:text="${usuario.email}">E-mail</span></td>
-                    <td><a th:href="@{/deletar.html/{id}(id=${usuario.id})}">Deletar</a></td>
-                    <td><a th:href="@{/editar.html/{id}(id=${usuario.id})}">Editar</a></td>
+                    <td><a th:href="@{/usuario/editar.html/{id}(id=${usuario.id})}">Editar</a></td>
+                    <td><a th:href="@{/usuario/deletar.html/{id}(id=${usuario.id})}">Deletar</a></td>
                 </tr>
             </table>
         </div>

@@ -11,16 +11,16 @@ import javax.persistence.Id;
 public class Etiqueta {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private String titulo;
     private String descricao;
     private String url;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

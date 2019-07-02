@@ -1,61 +1,64 @@
-package br.ufjf.dcc193.trabalho03.models;
+// package br.ufjf.dcc193.trabalho03.models;
 
-import java.util.List;
+// import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+// import javax.persistence.Entity;
+// import javax.persistence.GeneratedValue;
+// import javax.persistence.Id;
+// import javax.persistence.OneToMany;
 
-/**
- * Vinculo
- */
-@Entity
-public class Vinculo {
-    @Id
-    @GeneratedValue
-    private int id;
-    private int itemOrigem;
-    private int itemDestino;
-    private List<Integer> anotacoes;
-    private List<Integer> etiquetas;
+// /**
+//  * Vinculo
+//  */
+// @Entity
+// public class Vinculo {
+//     @Id
+//     @GeneratedValue
+//     private Long id;
+//     private int itemOrigem;
+//     private int itemDestino;
+//     @OneToMany
+//     private List<Anotacao> anotacoes;
+//     @OneToMany
+//     private List<Etiqueta> etiquetas;
 
-    public int getId() {
-        return id;
-    }
+//     public Long getId() {
+//         return id;
+//     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+//     public void setId(Long id) {
+//         this.id = id;
+//     }
 
-    public int getItemOrigem() {
-        return itemOrigem;
-    }
+//     public int getItemOrigem() {
+//         return itemOrigem;
+//     }
 
-    public void setItemOrigem(int itemOrigem) {
-        this.itemOrigem = itemOrigem;
-    }
+//     public void setItemOrigem(int itemOrigem) {
+//         this.itemOrigem = itemOrigem;
+//     }
 
-    public int getItemDestino() {
-        return itemDestino;
-    }
+//     public int getItemDestino() {
+//         return itemDestino;
+//     }
 
-    public void setItemDestino(int itemDestino) {
-        this.itemDestino = itemDestino;
-    }
+//     public void setItemDestino(int itemDestino) {
+//         this.itemDestino = itemDestino;
+//     }
 
-    public List<Integer> getAnotacoes() {
-        return anotacoes;
-    }
+//     public List<Anotacao> getAnotacoes() {
+//         return anotacoes;
+//     }
 
-    public void setAnotacoes(List<Integer> anotacoes) {
-        this.anotacoes = anotacoes;
-    }
+//     public void setAnotacoes(List<Anotacao> anotacoes) {
+//         this.anotacoes = anotacoes;
+//     }
 
-    public List<Integer> getEtiquetas() {
-        return etiquetas;
-    }
+//     public List<Etiqueta> getEtiquetas() {
+//         return etiquetas;
+//     }
 
-    public void setEtiquetas(List<Integer> etiquetas) {
-        this.etiquetas = etiquetas;
-    }
-}
+//     public void setEtiquetas(List<Etiqueta> etiquetas) {
+//         this.etiquetas = etiquetas;
+//     }
+// }

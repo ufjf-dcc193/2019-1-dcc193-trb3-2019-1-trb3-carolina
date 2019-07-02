@@ -19,8 +19,8 @@
                     <td><span th:text="${etiqueta.titulo}">Título</span></td>
                     <td><span th:text="${etiqueta.descricao}">Descrição</span></td>
                     <td><span th:text="${etiqueta.url}">URL</span></td>
-                    <td><a th:href="@{/deletar.html/{id}(id=${etiqueta.id})}">Deletar</a></td>
-                    <td><a th:href="@{/editar.html/{id}(id=${etiqueta.id})}">Editar</a></td>
+                    <td><a th:href="@{/etiqueta/editar.html/{id}(id=${etiqueta.id})}">Editar</a></td>
+                    <td><a th:href="@{/etiqueta/deletar.html/{id}(id=${etiqueta.id})}">Deletar</a></td>
                 </tr>
             </table>
         </div>
