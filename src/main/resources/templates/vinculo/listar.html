@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Vínculos</title>
+</head>
+
+<body>
+    <h2>Listar Vínculos</h2>
+        <div th:unless="${#lists.isEmpty(vinculos)}">
+            <table style="width:100%">
+                <tr>
+                </tr>
+                <tr th:each="vinculo : ${vinculos}">
+                    <td><a th:href="@{/deletar.html/{id}(id=${vinculo.id})}">Deletar</a></td>
+                    <td><a th:href="@{/editar.html/{id}(id=${vinculo.id})}">Editar</a></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

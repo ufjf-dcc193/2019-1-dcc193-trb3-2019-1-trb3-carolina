@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Etiquetas</title>
+</head>
+
+<body>
+    <h2>Listar Etiquetas</h2>
+        <div th:unless="${#lists.isEmpty(etiquetas)}">
+            <table style="width:100%">
+                <tr>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>URL</th>
+                </tr>
+                <tr th:each="etiqueta : ${etiquetas}">
+                    <td><span th:text="${etiqueta.titulo}">Título</span></td>
+                    <td><span th:text="${etiqueta.descricao}">Descrição</span></td>
+                    <td><span th:text="${etiqueta.url}">URL</span></td>
+                    <td><a th:href="@{/deletar.html/{id}(id=${etiqueta.id})}">Deletar</a></td>
+                    <td><a th:href="@{/editar.html/{id}(id=${etiqueta.id})}">Editar</a></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

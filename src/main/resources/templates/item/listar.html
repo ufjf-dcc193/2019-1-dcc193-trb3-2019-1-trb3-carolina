@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Itens</title>
+</head>
+
+<body>
+    <h2>Listar Itens</h2>
+        <div th:unless="${#lists.isEmpty(itens)}">
+            <table style="width:100%">
+                <tr>
+                    <th>Título</th>
+                </tr>
+                <tr th:each="item : ${itens}">
+                    <td><span th:text="${item.titulo}">Título</span></td>
+                    <td><a th:href="@{/deletar.html/{id}(id=${item.id})}">Deletar</a></td>
+                    <td><a th:href="@{/editar.html/{id}(id=${item.id})}">Editar</a></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
