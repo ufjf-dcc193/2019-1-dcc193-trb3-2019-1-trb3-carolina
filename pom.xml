@@ -18,6 +18,10 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<session-config>
+        <session-timeout>3</session-timeout>
+    </session-config>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

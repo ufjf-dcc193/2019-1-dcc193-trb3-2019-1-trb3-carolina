@@ -12,4 +12,5 @@ import br.ufjf.dcc193.trabalho03.models.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     List<Usuario> findAll();
     void deleteById(Long Id);
+    List<Usuario> findByEmail(String email);
 }

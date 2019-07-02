@@ -7,6 +7,16 @@
 </head>
 
 <body>
+    <h1>Sistema de cadastro de acervo</h1> 
+    <hr>
+    <h2>MENU</h2>
+    <div class="topnav">
+        <a href="/menu.html">Menu |</a>
+        <a href="/usuario/listar.html">Listar Usuários |</a>
+        <a href="/item/listar.html">Listar Itens |</a>
+        <a class="active" href="/etiqueta/listar.html">Listar Etiquetas |</a>
+    </div>
+    <hr>
     <h2>Listar Etiquetas</h2>
         <div th:unless="${#lists.isEmpty(etiquetas)}">
             <table style="width:100%">

@@ -2,6 +2,8 @@ package br.ufjf.dcc193.trabalho03.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,34 @@ public class UsuarioController {
         this.usuarioRepo = usuarioRepo;
     }
 
+    //CHAMA TELA LOGIN
+    @RequestMapping("/index.html")
+    public String login(){
+        return "/index.html";
+    }
+
+    //FAZ LOGIN
+    @RequestMapping(value = "/index.html", method = RequestMethod.POST)
+    public String login (Usuario usuario, HttpSession session) {
+        List<Usuario> listaUsuarios = usuarioRepo.findByEmail(usuario.getEmail());
+        if(!listaUsuarios.isEmpty()) {
+            Usuario usuarioAux = listaUsuarios.get(0);
+            if(this.usuarioRepo.existsById(usuarioAux.getId())) {
+                session.setAttribute("usuarioLogado", usuario);
+                return "redirect:/menu.html";
+            } else {
+                return "/index.html";
+            }
+        }
+        return "/index.html";
+    }
+
+    //CHAMA TELA MENU
+    @RequestMapping("/menu.html")
+    public String menu(){
+        return "/menu.html";
+    }
+
     //CHAMA TELA CRIAR USUARIO
     @RequestMapping("/usuario/criar.html")
     public String criar() {
@@ -35,7 +65,7 @@ public class UsuarioController {
     @RequestMapping(value = "/usuario/criar.html", method = RequestMethod.POST)
     public String criar(Usuario usuario) {
         usuarioRepo.save(usuario);
-        return "redirect:/usuario/listar.html";
+        return "redirect:/index.html";
     }
 
     //LISTA USUARIOS
