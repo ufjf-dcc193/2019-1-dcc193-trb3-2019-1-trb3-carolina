@@ -2,10 +2,18 @@ package br.ufjf.dcc193.trabalho03.models;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Anotacao
  */
+@Entity
 public class Anotacao {
+    @Id
+    @GeneratedValue
+    private int id;
     private String titulo;
     private String descricao;
     private String url;
@@ -13,40 +21,20 @@ public class Anotacao {
     private Date dataInclusao;
     private Date dataAlteracao;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTitulo() {
         return titulo;
     }
 
-    public Date getDataAlteracao() {
-        return dataAlteracao;
-    }
-
-    public void setDataAlteracao(Date dataAlteracao) {
-        this.dataAlteracao = dataAlteracao;
-    }
-
-    public Date getDataInclusao() {
-        return dataInclusao;
-    }
-
-    public void setDataInclusao(Date dataInclusao) {
-        this.dataInclusao = dataInclusao;
-    }
-
-    public int getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(int usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getDescricao() {
@@ -57,7 +45,35 @@ public class Anotacao {
         this.descricao = descricao;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public int getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(int usuario) {
+        this.usuario = usuario;
+    }
+
+    public Date getDataInclusao() {
+        return dataInclusao;
+    }
+
+    public void setDataInclusao(Date dataInclusao) {
+        this.dataInclusao = dataInclusao;
+    }
+
+    public Date getDataAlteracao() {
+        return dataAlteracao;
+    }
+
+    public void setDataAlteracao(Date dataAlteracao) {
+        this.dataAlteracao = dataAlteracao;
     }
 }
