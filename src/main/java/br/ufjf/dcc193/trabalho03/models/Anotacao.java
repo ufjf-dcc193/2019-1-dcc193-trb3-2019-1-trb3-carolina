@@ -1,85 +1,88 @@
-// package br.ufjf.dcc193.trabalho03.models;
+package br.ufjf.dcc193.trabalho03.models;
 
-// import java.util.Date;
+import java.util.Date;
 
-// import javax.persistence.Entity;
-// import javax.persistence.GeneratedValue;
-// import javax.persistence.Id;
-// import javax.persistence.OneToOne;
-// import javax.persistence.Temporal;
-// import javax.persistence.TemporalType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-// /**
-//  * Anotacao
-//  */
-// @Entity
-// public class Anotacao {
-//     @Id
-//     @GeneratedValue
-//     private Long id;
-//     private String titulo;
-//     private String descricao;
-//     private String url;
-//     @OneToOne
-//     private Usuario usuario;
-//     @Temporal(TemporalType.DATE)
-//     private Date dataInclusao;
-//     @Temporal(TemporalType.DATE)
-//     private Date dataAlteracao;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-//     public Long getId() {
-//         return id;
-//     }
+/**
+ * Anotacao
+ */
+@Entity
+public class Anotacao {
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String titulo;
+    private String descricao;
+    private String url;
+    @OneToOne
+    private Usuario usuario;
+    @CreationTimestamp
+    private Date dataInclusao;
+    @UpdateTimestamp
+    private Date dataAlteracao;
 
-//     public void setId(Long id) {
-//         this.id = id;
-//     }
+    public Long getId() {
+        return id;
+    }
 
-//     public String getTitulo() {
-//         return titulo;
-//     }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-//     public void setTitulo(String titulo) {
-//         this.titulo = titulo;
-//     }
+    public String getTitulo() {
+        return titulo;
+    }
 
-//     public String getDescricao() {
-//         return descricao;
-//     }
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-//     public void setDescricao(String descricao) {
-//         this.descricao = descricao;
-//     }
+    public String getDescricao() {
+        return descricao;
+    }
 
-//     public String getUrl() {
-//         return url;
-//     }
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-//     public void setUrl(String url) {
-//         this.url = url;
-//     }
+    public String getUrl() {
+        return url;
+    }
 
-//     public Usuario getUsuario() {
-//         return usuario;
-//     }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-//     public void setUsuario(Usuario usuario) {
-//         this.usuario = usuario;
-//     }
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-//     public Date getDataInclusao() {
-//         return dataInclusao;
-//     }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
-//     public void setDataInclusao(Date dataInclusao) {
-//         this.dataInclusao = dataInclusao;
-//     }
+    public Date getDataInclusao() {
+        return dataInclusao;
+    }
 
-//     public Date getDataAlteracao() {
-//         return dataAlteracao;
-//     }
+    public void setDataInclusao(Date dataInclusao) {
+        this.dataInclusao = dataInclusao;
+    }
 
-//     public void setDataAlteracao(Date dataAlteracao) {
-//         this.dataAlteracao = dataAlteracao;
-//     }
-// }
+    public Date getDataAlteracao() {
+        return dataAlteracao;
+    }
+
+    public void setDataAlteracao(Date dataAlteracao) {
+        this.dataAlteracao = dataAlteracao;
+    }
+}

@@ -5,6 +5,17 @@
         <title>Criar Vínculo</title>
     </head>
     <body>
+        <h1>Sistema de cadastro de acervo</h1> 
+        <hr>
+        <h2>MENU</h2>
+        <div>
+            <a href="/menu.html">Menu |</a>
+            <a href="/usuario/listar.html">Listar Usuários |</a>
+            <a href="/item/listar.html">Listar Itens |</a>
+            <a href="/etiqueta/listar.html">Listar Etiquetas |</a>
+            <a href="/vinculo/listar.html">Listar Vínculos |</a>
+        </div>
+        <hr>
         <h3>Criar Vínculo do Item <span th:text="${item.titulo}">Título</span>:</h3>
         <form method="POST">
             <input type="hidden" name="origem" th:value="${item.id}">
@@ -12,12 +23,12 @@
             <select name="destino" >
                 <option th:each="i : ${itens}" th:value="${i.id}"><span th:text="${i.titulo}">Título</span></option>
             </select>
-            <p>Selecione as etiquetas: </p>
+            <!-- <p>Selecione as etiquetas: </p>
             <div th:unless="${#lists.isEmpty(etiquetas)}">
                 <div th:each="etiqueta : ${etiquetas}" th:object=${Etiqueta}>
                     <input type="checkbox" th:value="${etiqueta.id}" name="etiquetas"><span th:text="${etiqueta.titulo}">Título</span></input>
                 </div>
-            </div>
+            </div> -->
             <input type="submit" value="Enviar"></input>
         </form>
     </body>

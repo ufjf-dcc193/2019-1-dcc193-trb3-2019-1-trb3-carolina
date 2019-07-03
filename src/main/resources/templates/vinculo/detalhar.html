@@ -18,7 +18,9 @@
         <a href="/vinculo/listar.html">Listar Vínculos |</a>
     </div>
     <hr>
-    <h2>Detalhar Item <span th:text="${item.titulo}">Título</span></h2>
+    <h2>Detalhar Vínculo</h2>
+    <p>Item de Origem: <span th:text="${vinculo.origem.titulo}">Origem</span></p>
+    <p>Item de Destino: <span th:text="${vinculo.destino.titulo}">Destino</span></p>
     <p>Etiquetas:</p>
     <div th:unless="${#lists.isEmpty(item.etiquetas)}">
         <table>
@@ -34,24 +36,6 @@
             </tr>
         </table>
     </div>
-    <p>Vínculos:</p>
-    <div th:unless="${#lists.isEmpty(vinculos)}">
-        <table>
-            <tr>
-                <th>Vínculo</th>
-                <th>Item origem</th>
-                <th>Item destino</th>
-            </tr>
-            <tr th:each="vinculo : ${vinculos}">
-                <td><span th:text="${vinculo.id}">Id</span></td>
-                <td><span th:text="${vinculo.itemOrigem}">Item Origem</span></td>
-                <td><a th:href="@{/item/detalhar.html/{id}(id=${vinculo.itemDestino.id})}"></a><span th:text="${vinculo.itemDestino}">Item Destino</span></a></td>
-                <td><a th:href="@{/vinculo/editar.html/{id}(id=${vinculo.id})}">Editar</a></td>
-                <td><a th:href="@{/vinculo/deletar.html/{id}(id=${vinculo.id})}">Deletar</a></td>
-            </tr>
-        </table>
-    </div>
-    <a th:href="@{/vinculo/criar.html/{id}(id=${item.id})}">Criar Vínculo</a>
     <p>Anotações:</p>
     <div th:unless="${#lists.isEmpty(anotacoes)}">
         <table>

@@ -7,6 +7,17 @@
 </head>
 
 <body>
+    <h1>Sistema de cadastro de acervo</h1> 
+    <hr>
+    <h2>MENU</h2>
+    <div>
+        <a href="/menu.html">Menu |</a>
+        <a href="/usuario/listar.html">Listar Usuários |</a>
+        <a href="/item/listar.html">Listar Itens |</a>
+        <a href="/etiqueta/listar.html">Listar Etiquetas |</a>
+        <a href="/vinculo/listar.html">Listar Vinculos |</a>
+    </div>
+    <hr>
     <h2>Listar Anotações</h2>
         <div th:unless="${#lists.isEmpty(anotacoes)}">
             <table style="width:100%">
@@ -19,8 +30,8 @@
                     <td><span th:text="${anotacao.titulo}">Título</span></td>
                     <td><span th:text="${anotacao.descricao}">Descrição</span></td>
                     <td><span th:text="${anotacao.url}">URL</span></td>
-                    <td><a th:href="@{/deletar.html/{id}(id=${anotacao.id})}">Deletar</a></td>
-                    <td><a th:href="@{/editar.html/{id}(id=${anotacao.id})}">Editar</a></td>
+                    <td><a th:href="@{/anotacao/editar.html/{id}(id=${anotacao.id})}">Editar</a></td>
+                    <td><a th:href="@{/anotacao/deletar.html/{id}(id=${anotacao.id})}">Deletar</a></td>
                 </tr>
             </table>
         </div>

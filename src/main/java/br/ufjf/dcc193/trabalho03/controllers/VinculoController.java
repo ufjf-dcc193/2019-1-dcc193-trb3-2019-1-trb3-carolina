@@ -65,4 +65,35 @@ public class VinculoController {
         }
         return "/vinculo/listar.html";
     }
+    
+    // CHAMA TELA EDITAR VINCULO
+    @RequestMapping("/vinculo/editar.html/{id}")
+    public String editar(@PathVariable("id") Long id, Model model) {
+        Vinculo vinculo = vinculoRepo.findById(id).get();
+        model.addAttribute("vinculo", vinculo);
+        List<Item> listaItens = itemRepo.findAll();
+        if (listaItens != null) {
+            model.addAttribute("itens", listaItens);
+        }
+        List<Etiqueta> listaEtiquetas = etiquetaRepo.findAll();
+        if (listaEtiquetas != null) {
+            model.addAttribute("etiquetas", listaEtiquetas);
+        }
+        return "/vinculo/editar.html";
+    }
+    
+    //CHAMA A TELA DETALHAR VINCULO
+    @RequestMapping(value = "/vinculo/detalhar.html/{id}")
+    public String detalhar(@PathVariable("id") Long id, Model model) {
+        Vinculo vinculo = vinculoRepo.findById(id).get();
+        model.addAttribute("vinculo", vinculo);
+        return "/vinculo/detalhar.html";
+    }
+    
+    //DELETA VINCULO
+    @RequestMapping(value = "/vinculo/deletar.html/{id}")
+    public String deletar(@PathVariable("id") Long id) {
+        vinculoRepo.deleteById(id);
+        return "redirect:/vinculo/listar.html";
+    }
 }

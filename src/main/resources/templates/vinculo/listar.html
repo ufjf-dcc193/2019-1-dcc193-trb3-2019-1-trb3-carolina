@@ -10,12 +10,12 @@
     <h1>Sistema de cadastro de acervo</h1> 
     <hr>
     <h2>MENU</h2>
-    <div class="topnav">
+    <div>
         <a href="/menu.html">Menu |</a>
         <a href="/usuario/listar.html">Listar Usuários |</a>
         <a href="/item/listar.html">Listar Itens |</a>
-        <a class="active" href="/etiqueta/listar.html">Listar Etiquetas |</a>
-        <a class="active" href="/vinculos/listar.html">Listar Vinculos |</a>
+        <a href="/etiqueta/listar.html">Listar Etiquetas |</a>
+        <a href="/vinculo/listar.html">Listar Vinculos |</a>
         
     </div>
     <hr>
@@ -30,11 +30,9 @@
             <tr th:each="vinculo : ${vinculos}">
                 <td><span th:text="${vinculo.origem.titulo}">Origem</span></a></td>
                 <td><span th:text="${vinculo.destino.titulo}">Destino</span></a></td>
-                <td th:each="etiqueta : ${vinculo.etiquetas}">
-                    <span th:text="${etiqueta.titulo}">Título</span>, 
-                </td>    
-                <td><a th:href="@{/deletar.html/{id}(id=${vinculo.id})}">Deletar</a></td>
-                <td><a th:href="@{/editar.html/{id}(id=${vinculo.id})}">Editar</a></td>
+                <td><a th:href="@{/vinculo/detalhar.html/{id}(id=${vinculo.id})}">Detalhar</a></td>
+                <td><a th:href="@{/vinculo/editar.html/{id}(id=${vinculo.id})}">Editar</a></td>
+                <td><a th:href="@{/vinculo/deletar.html/{id}(id=${vinculo.id})}">Deletar</a></td>
             </tr>
         </table>
     </div>

@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Editar Vínculo</title>
-    </head>
-    <body>
-        <h3>Editar Vínculo:</h3>
-        <form method="POST">
-            <input type="submit" value="Enviar"></input>
-        </form>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Vínculo</title>
+</head>
+<body>
+    <h1>Sistema de cadastro de acervo</h1> 
+    <hr>
+    <h2>MENU</h2>
+    <div>
+        <a href="/menu.html">Menu |</a>
+        <a href="/usuario/listar.html">Listar Usuários |</a>
+        <a href="/item/listar.html">Listar Itens |</a>
+        <a href="/etiqueta/listar.html">Listar Etiquetas |</a>
+        <a href="/vinculo/listar.html">Listar Vínculos |</a>
+    </div>
+    <hr>
+    <h3>Editar Vínculo:</h3>
+    <form method="POST">
+        <input type="input" name="origem" th:value="${vinculo.origem.titulo}" disabled>
+        <p>Escolha o item de destino: </p>
+        <div th:unless="${#lists.isEmpty(itens)}">
+            <select name="destino">
+                <option th:each="i : ${itens}" th:value="${i.id}"></option><span th:text="${i.titulo}">Título</span></option>
+            </select>
+        </div>
+        <!-- <p>Selecione as etiquetas: </p>
+        <div th:unless="${#lists.isEmpty(etiquetas)}">
+            <div th:each="etiqueta : ${etiquetas}" th:object=${Etiqueta}>
+                <input type="checkbox" th:value="${etiqueta.id}" name="etiquetas" th:attr="checked=${vinculo.etiquetas.contains(etiqueta) ? true : false}"><span th:text="${etiqueta.titulo}">Título</span></input>
+            </div>
+        </div> -->
+        
+        <input type="submit" value="Enviar"></input>
+    </form>
+</body>
 </html>
