@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhar Item</title>
+</head>
+
+<body>
+    <h2>Detalhar Item <span th:text="${item.titulo}">Título</span></h2>
+    <p>Etiquetas:</p>
+    <div th:unless="${#lists.isEmpty(item.etiquetas)}">
+        <table>
+            <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>URL</th>
+            </tr>
+            <tr th:each="etiqueta : ${item.etiquetas}">
+                <td><span th:text="${etiqueta.titulo}">Título</span></td>
+                <td><span th:text="${etiqueta.descricao}">Descrição</span></td>
+                <td><span th:text="${etiqueta.url}">URL</span></td>
+            </tr>
+        </table>
+    </div>
+    <p>Vínculos:</p>
+    <div th:unless="${#lists.isEmpty(vinculos)}">
+        <table>
+            <tr>
+                <th>Vínculo</th>
+                <th>Item origem</th>
+                <th>Item destino</th>
+            </tr>
+            <tr th:each="vinculo : ${vinculos}">
+                <td><span th:text="${vinculo.id}">Id</span></td>
+                <td><span th:text="${vinculo.itemOrigem}">Item Origem</span></td>
+                <td><a th:href="@{/item/detalhar.html/{id}(id=${vinculo.itemDestino.id})}"></a><span th:text="${vinculo.itemDestino}">Item Destino</span></a></td>
+                <td><a th:href="@{/vinculo/editar.html/{id}(id=${vinculo.id})}">Editar</a></td>
+                <td><a th:href="@{/vinculo/deletar.html/{id}(id=${vinculo.id})}">Deletar</a></td>
+            </tr>
+        </table>
+    </div>
+    <a href="/vinculo/criar.html/{id}(id=${item.id})}">Criar Vínculo</a>
+    <!-- <p>Anotações:</p>
+    <div th:unless="${#lists.isEmpty(anotacoes)}">
+        <table>
+            <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>URL</th>
+                <th>Nome do Usuário</th>
+                <th>Data de Inclusão</th>
+                <th>Data de Inclusão</th>
+            </tr>
+            <tr th:each="anotacao : ${anotacoes}">
+                <td><span th:text="${anotacao.titulo}">Título</span></td>
+                <td><span th:text="${anotacao.descricao}">Descrição</span></td>
+                <td><span th:text="${anotacao.url}">URL</span></td>
+                <td><span th:text="${anotacao.usuario.nomeCompleto}">Nome do Usuário</span></td>
+                <td><span th:text="${anotacao.dataInclusao}">Data de Inclusão</span></td>
+                <td><span th:text="${anotacao.dataAlteracao}">Data de Alteração</span></td>
+                <td><a th:href="@{/anotacao/editar.html/{id}(id=${item.id})}">Editar</a></td>
+                <td><a th:href="@{/anotacao/deletar.html/{id}(id=${item.id})}">Deletar</a></td>
+            </tr>
+        </table>
+    </div>
+    <a href="/anotacao/criar.html">Criar Anotação</a> -->
+</body>
+</html>

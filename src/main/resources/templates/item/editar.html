@@ -9,9 +9,10 @@
         <form method="POST">
             <label for="titulo">Título:</label><br /> 
             <input type="text" name="titulo" size="50" th:value="${item.titulo}"></input><br />
+            <label for="etiquetas">Etiquetas:</label><br /> 
             <div th:unless="${#lists.isEmpty(etiquetas)}">
-                <div th:each="etiqueta : ${etiquetas}">
-                    <input type="checkbox" name="etiquetas" th:attr="checked=${item.etiquetas.contains(etiqueta) ? true : false} " th:value="etiqueta.id"><span th:text="${etiqueta.titulo}">Título</span></input>
+                <div th:each="etiqueta : ${etiquetas}" th:object=${Etiqueta}>
+                    <input type="checkbox" name="etiquetas" th:attr="checked=${item.etiquetas.contains(etiqueta) ? true : false}"><span th:text="${etiqueta.titulo}">Título</span></input>
                 </div>
             </div>
             <input type="submit" value="Enviar"></input>

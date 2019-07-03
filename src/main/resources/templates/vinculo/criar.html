@@ -2,11 +2,19 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Cadastrar Vínculo</title>
+        <title>Criar Vínculo</title>
     </head>
     <body>
-        <h3>Cadastrar Vínculo:</h3>
+        <h3>Criar Vínculo do Item <span th:text="${item.titulo}">Título</span>:</h3>
         <form method="POST">
+            <select th:each="i : ${itens}" th:object=${Item}>
+                <option name="itemDestino" th:value="${i.id}"><span th:text="${i.titulo}">Título</span></option>
+            </select>
+            <div th:unless="${#lists.isEmpty(etiquetas)}">
+                <div th:each="etiqueta : ${etiquetas}" th:object=${Etiqueta}>
+                    <input type="checkbox" th:value="${etiqueta.id}" name="etiquetas"><span th:text="${etiqueta.titulo}">Título</span></input>
+                </div>
+            </div>
             <input type="submit" value="Enviar"></input>
         </form>
     </body>

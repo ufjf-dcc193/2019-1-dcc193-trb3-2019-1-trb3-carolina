@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  * Item
@@ -20,8 +21,8 @@ public class Item {
     // private List<Anotacao> anotacoes;
     @ManyToMany
     private List<Etiqueta> etiquetas;
-    // @OneToMany
-    // private List<Vinculo> vinculos;
+    @OneToMany
+    private List<Vinculo> vinculos;
 
     public Long getId() {
         return id;
@@ -55,11 +56,11 @@ public class Item {
         this.etiquetas = etiquetas;
     }
 
-    // public List<Vinculo> getVinculos() {
-    //     return vinculos;
-    // }
+    public List<Vinculo> getVinculos() {
+        return vinculos;
+    }
 
-    // public void setVinculos(List<Vinculo> vinculos) {
-    //     this.vinculos = vinculos;
-    // }
+    public void setVinculos(List<Vinculo> vinculos) {
+        this.vinculos = vinculos;
+    }
 }
