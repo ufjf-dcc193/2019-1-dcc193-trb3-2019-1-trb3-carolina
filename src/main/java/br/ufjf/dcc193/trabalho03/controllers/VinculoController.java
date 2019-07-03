@@ -17,36 +17,52 @@ import br.ufjf.dcc193.trabalho03.repositorys.ItemRepository;
 import br.ufjf.dcc193.trabalho03.repositorys.VinculoRepository;
 
 /**
- * VinculoController
- */
+* VinculoController
+*/
 @Controller
 public class VinculoController {
     
     private VinculoRepository vinculoRepo;
     private ItemRepository itemRepo;
     private EtiquetaRepository etiquetaRepo;
-
+    
     @Autowired
-    public VinculoController(VinculoRepository vinculoRepo) {
+    public VinculoController(VinculoRepository vinculoRepo, ItemRepository itemRepo, EtiquetaRepository etiquetaRepo) {
         this.vinculoRepo = vinculoRepo;
+        this.itemRepo = itemRepo;
+        this.etiquetaRepo = etiquetaRepo;
     }
-
+    
     // CHAMA TELA CRIA VINCULO
     @RequestMapping("/vinculo/criar.html/{id}")
     public String criar(@PathVariable("id") Long id, Model model) {
+        Item item = itemRepo.findById(id).get();
+        model.addAttribute("item", item);
+        List<Item> listaItens = itemRepo.findAll();
+        if (listaItens != null) {
+            model.addAttribute("itens", listaItens);
+        }
         List<Etiqueta> listaEtiquetas = etiquetaRepo.findAll();
         if (listaEtiquetas != null) {
             model.addAttribute("etiquetas", listaEtiquetas);
         }
-        Item item = itemRepo.findById(id).get();
-        model.addAttribute("item", item);
         return "/vinculo/criar.html";
     }
     
     // CRIA VINCULO
-    @RequestMapping(value = "/vinculo/criar.html", method = RequestMethod.POST)
+    @RequestMapping(value = "/vinculo/criar.html/{id}", method = RequestMethod.POST)
     public String criar(Vinculo vinculo) {
         vinculoRepo.save(vinculo);
         return "redirect:/vinculo/listar.html";
+    }
+    
+    // LISTA VINCULOS
+    @RequestMapping("/vinculo/listar.html")
+    public String listar(Model model) {
+        List<Vinculo> listaVinculos = vinculoRepo.findAll();
+        if (listaVinculos != null) {
+            model.addAttribute("vinculos", listaVinculos);
+        }
+        return "/vinculo/listar.html";
     }
 }

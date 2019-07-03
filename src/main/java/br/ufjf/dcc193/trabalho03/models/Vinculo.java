@@ -3,11 +3,10 @@ package br.ufjf.dcc193.trabalho03.models;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 /**
  * Vinculo
@@ -17,18 +16,15 @@ public class Vinculo {
     @Id
     @GeneratedValue
     private Long id;
- 
-    @OneToOne(fetch = FetchType.EAGER)
-    private Item itemOrigem;
- 
-    @OneToOne(fetch = FetchType.EAGER)
-    private Item itemDestino;
+    @ManyToOne
+    private Item origem;
+    @ManyToOne
+    private Item destino;
+    @ManyToMany
+    private List<Etiqueta> etiquetas;
  
     // @OneToMany
     // private List<Anotacao> anotacoes;
- 
-    @ManyToMany
-    private List<Etiqueta> etiquetas;
 
     public Long getId() {
         return id;
@@ -38,20 +34,20 @@ public class Vinculo {
         this.id = id;
     }
 
-    public Item getItemOrigem() {
-        return itemOrigem;
+    public Item getOrigem() {
+        return origem;
     }
 
-    public void setItemOrigem(Item itemOrigem) {
-        this.itemOrigem = itemOrigem;
+    public void setOrigem(Item origem) {
+        this.origem = origem;
     }
 
-    public Item getItemDestino() {
-        return itemDestino;
+    public Item getDestino() {
+        return destino;
     }
 
-    public void setItemDestino(Item itemDestino) {
-        this.itemDestino = itemDestino;
+    public void setDestino(Item destino) {
+        this.destino = destino;
     }
 
     // public List<Anotacao> getAnotacoes() {

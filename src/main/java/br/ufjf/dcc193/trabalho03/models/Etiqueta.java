@@ -1,8 +1,11 @@
 package br.ufjf.dcc193.trabalho03.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 
 /**
@@ -16,6 +19,8 @@ public class Etiqueta {
     private String titulo;
     private String descricao;
     private String url;
+    @ManyToMany
+    private List<Vinculo> vinculos;
 
     
     public Long getId() {
@@ -54,8 +59,16 @@ public class Etiqueta {
     //     return itens;
     // }
 
-    // public void setItems(List<Item> itens) {
+    // public void setItens(List<Item> itens) {
     //     this.itens = itens;
     // }
+
+    public List<Vinculo> getVinculos() {
+        return vinculos;
+    }
+
+    public void setVinculos(List<Vinculo> vinculos) {
+        this.vinculos = vinculos;
+    }
     
 }

@@ -7,9 +7,12 @@
     <body>
         <h3>Criar Vínculo do Item <span th:text="${item.titulo}">Título</span>:</h3>
         <form method="POST">
-            <select th:each="i : ${itens}" th:object=${Item}>
-                <option name="itemDestino" th:value="${i.id}"><span th:text="${i.titulo}">Título</span></option>
+            <input type="hidden" name="origem" th:value="${item.id}">
+            <p>Escolha o item de destino: </p>
+            <select name="destino" >
+                <option th:each="i : ${itens}" th:value="${i.id}"><span th:text="${i.titulo}">Título</span></option>
             </select>
+            <p>Selecione as etiquetas: </p>
             <div th:unless="${#lists.isEmpty(etiquetas)}">
                 <div th:each="etiqueta : ${etiquetas}" th:object=${Etiqueta}>
                     <input type="checkbox" th:value="${etiqueta.id}" name="etiquetas"><span th:text="${etiqueta.titulo}">Título</span></input>

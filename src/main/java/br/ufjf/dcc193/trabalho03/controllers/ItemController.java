@@ -24,7 +24,6 @@ public class ItemController {
     
     private ItemRepository itemRepo;
     private EtiquetaRepository etiquetaRepo;
-    private VinculoRepository vinculoRepo;
     
     @Autowired
     public ItemController(ItemRepository itemRepo, EtiquetaRepository etiquetaRepo) {

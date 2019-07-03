@@ -40,7 +40,7 @@
             </tr>
         </table>
     </div>
-    <a href="/vinculo/criar.html/{id}(id=${item.id})}">Criar Vínculo</a>
+    <a th:href="@{/vinculo/criar.html/{id}(id=${item.id})}">Criar Vínculo</a>
     <!-- <p>Anotações:</p>
     <div th:unless="${#lists.isEmpty(anotacoes)}">
         <table>

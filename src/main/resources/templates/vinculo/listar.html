@@ -7,16 +7,36 @@
 </head>
 
 <body>
+    <h1>Sistema de cadastro de acervo</h1> 
+    <hr>
+    <h2>MENU</h2>
+    <div class="topnav">
+        <a href="/menu.html">Menu |</a>
+        <a href="/usuario/listar.html">Listar Usuários |</a>
+        <a href="/item/listar.html">Listar Itens |</a>
+        <a class="active" href="/etiqueta/listar.html">Listar Etiquetas |</a>
+        <a class="active" href="/vinculos/listar.html">Listar Vinculos |</a>
+        
+    </div>
+    <hr>
     <h2>Listar Vínculos</h2>
-        <div th:unless="${#lists.isEmpty(vinculos)}">
-            <table style="width:100%">
-                <tr>
-                </tr>
-                <tr th:each="vinculo : ${vinculos}">
-                    <td><a th:href="@{/deletar.html/{id}(id=${vinculo.id})}">Deletar</a></td>
-                    <td><a th:href="@{/editar.html/{id}(id=${vinculo.id})}">Editar</a></td>
-                </tr>
-            </table>
-        </div>
-    </body>
+    <div th:unless="${#lists.isEmpty(vinculos)}">
+        <table style="width:100%">
+            <tr>
+                <th>Item de Origem</th>
+                <th>Item de Destino</th>
+                <th>Etiqueta</th>
+            </tr>
+            <tr th:each="vinculo : ${vinculos}">
+                <td><span th:text="${vinculo.origem.titulo}">Origem</span></a></td>
+                <td><span th:text="${vinculo.destino.titulo}">Destino</span></a></td>
+                <td th:each="etiqueta : ${vinculo.etiquetas}">
+                    <span th:text="${etiqueta.titulo}">Título</span>, 
+                </td>    
+                <td><a th:href="@{/deletar.html/{id}(id=${vinculo.id})}">Deletar</a></td>
+                <td><a th:href="@{/editar.html/{id}(id=${vinculo.id})}">Editar</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
 </html>
