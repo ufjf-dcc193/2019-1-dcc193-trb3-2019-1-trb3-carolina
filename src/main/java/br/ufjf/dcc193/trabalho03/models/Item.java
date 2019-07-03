@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 /**
  * Item
@@ -15,10 +15,10 @@ public class Item {
     @Id
     @GeneratedValue
     private Long id;
-    private String título;
+    private String titulo;
     // @OneToMany
     // private List<Anotacao> anotacoes;
-    @OneToMany
+    @ManyToMany
     private List<Etiqueta> etiquetas;
     // @OneToMany
     // private List<Vinculo> vinculos;
@@ -31,12 +31,12 @@ public class Item {
         this.id = id;
     }
 
-    public String getTítulo() {
-        return título;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTítulo(String título) {
-        this.título = título;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     // public List<Anotacao> getAnotacoes() {

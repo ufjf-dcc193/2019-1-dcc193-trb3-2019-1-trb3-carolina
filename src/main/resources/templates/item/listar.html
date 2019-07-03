@@ -12,13 +12,18 @@
             <table style="width:100%">
                 <tr>
                     <th>Título</th>
+                    <th>Etiquetas</th>
                 </tr>
                 <tr th:each="item : ${itens}">
-                    <td><span th:text="${item.titulo}">Título</span></td>
-                    <td><a th:href="@{/deletar.html/{id}(id=${item.id})}">Deletar</a></td>
-                    <td><a th:href="@{/editar.html/{id}(id=${item.id})}">Editar</a></td>
+                        <td><span th:text="${item.titulo}">Título</span></td>
+                        <td th:each="etiqueta : ${item.etiquetas}">
+                            <span th:text="${etiqueta.titulo}">Título</span>, 
+                        </td>
+                    <td><a th:href="@{/item/deletar.html/{id}(id=${item.id})}">Deletar</a></td>
+                    <td><a th:href="@{/item/editar.html/{id}(id=${item.id})}">Editar</a></td>
                 </tr>
             </table>
         </div>
+        <a href="/item/criar.html">Cadastrar Item</a>
     </body>
 </html>

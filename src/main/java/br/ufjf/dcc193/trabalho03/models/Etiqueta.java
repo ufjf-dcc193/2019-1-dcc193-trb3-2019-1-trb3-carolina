@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
 /**
  * Etiqueta
  */
@@ -16,6 +17,7 @@ public class Etiqueta {
     private String descricao;
     private String url;
 
+    
     public Long getId() {
         return id;
     }
@@ -47,4 +49,13 @@ public class Etiqueta {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    // public List<Item> getItens() {
+    //     return itens;
+    // }
+
+    // public void setItems(List<Item> itens) {
+    //     this.itens = itens;
+    // }
+    
 }
