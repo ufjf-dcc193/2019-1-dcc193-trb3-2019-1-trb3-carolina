@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.ufjf.dcc193.trabalho03.models.Anotacao;
-import br.ufjf.dcc193.trabalho03.models.Usuario;
 import br.ufjf.dcc193.trabalho03.repositorys.AnotacaoRepository;
 
 /**

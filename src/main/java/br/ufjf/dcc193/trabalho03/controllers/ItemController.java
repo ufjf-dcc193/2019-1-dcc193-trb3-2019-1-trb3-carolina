@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.ufjf.dcc193.trabalho03.models.Etiqueta;
 import br.ufjf.dcc193.trabalho03.models.Item;
-import br.ufjf.dcc193.trabalho03.models.Vinculo;
 import br.ufjf.dcc193.trabalho03.repositorys.EtiquetaRepository;
 import br.ufjf.dcc193.trabalho03.repositorys.ItemRepository;
-import br.ufjf.dcc193.trabalho03.repositorys.VinculoRepository;
 
 /**
 * ItemController
